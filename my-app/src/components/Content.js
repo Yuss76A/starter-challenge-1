@@ -22,6 +22,17 @@ class Content extends React.Component {
         }, 2000)
     }
 
+    handleChange = (e) => {
+        const name = e.target.value.toLowerCase();
+        const filteredPosts = savedPosts.filter((post)=>{
+            return post.name.toLowerCase().includes(name)
+        })
+        
+        this.setState({
+            posts: filteredPosts
+        })
+    }
+
     render() {
         return (
             <div className={css.Content}>
